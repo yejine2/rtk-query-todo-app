@@ -1,0 +1,24 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "title": "리액트 공부하기",
+      "done": true
+    },
+    {
+      "id": 2,
+      "title": "운동하기",
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "청소하기",
+      "done": false
+    },
+    {
+      "id": 4,
+      "title": "책 반납하기",
+      "done": false
+    }
+  ]
+}
