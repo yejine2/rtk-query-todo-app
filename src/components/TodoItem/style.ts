@@ -16,20 +16,6 @@ export const Remove = styled.div`
   }
   display: none;
 `
-export const Change = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #dee2e6;
-  font-size: 2rem;
-  cursor: pointer;
-  margin-right: 1rem;
-  &:hover {
-    color: #42a5f5;
-  }
-  display: none;
-`
-
 export const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
@@ -37,9 +23,6 @@ export const TodoItemBlock = styled.div`
   padding-bottom: 1rem;
   &:hover {
     ${Remove} {
-      display: initial;
-    }
-    ${Change} {
       display: initial;
     }
   }
