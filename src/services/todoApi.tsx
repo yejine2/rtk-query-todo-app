@@ -25,8 +25,20 @@ export const todoApi = createApi({
       }),
       invalidatesTags: ['Todo'],
     }),
+    updateTodo: builder.mutation<void, Todo>({
+      query: ({ id, ...rest }) => ({
+        url: `/todo/${id}`,
+        method: 'PUT',
+        body: rest,
+      }),
+      invalidatesTags: ['Todo'],
+    }),
   }),
 })
 
-export const { useTodosQuery, useAddTodoMutation, useDeleteTodoMutation } =
-  todoApi
+export const {
+  useTodosQuery,
+  useAddTodoMutation,
+  useDeleteTodoMutation,
+  useUpdateTodoMutation,
+} = todoApi
