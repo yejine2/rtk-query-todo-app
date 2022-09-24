@@ -19,6 +19,7 @@ function TodoAdd() {
       title: value,
       done: false,
     })
+    setValue('')
   }
 
   return (
