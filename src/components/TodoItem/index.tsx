@@ -1,9 +1,11 @@
 import React from 'react'
 import * as S from './style'
 import { MdDone, MdDelete } from 'react-icons/md'
-import { FaPen } from 'react-icons/fa'
 import { Todo } from '../../models/todo.model'
-import { useDeleteTodoMutation } from '../../services/todoApi'
+import {
+  useDeleteTodoMutation,
+  useUpdateTodoMutation,
+} from '../../services/todoApi'
 
 type TodoProps = {
   todo: Todo
@@ -11,18 +13,22 @@ type TodoProps = {
 
 function TodoItem({ todo }: TodoProps) {
   const [deleteTodo] = useDeleteTodoMutation()
+  const [updateTodo] = useUpdateTodoMutation()
 
   const onDeleteTodo = (id: any) => {
     deleteTodo(id)
   }
 
+  const onToggleTodo = () => {
+    updateTodo({ ...todo, done: !todo.done })
+  }
+
   return (
     <S.TodoItemBlock>
-      <S.CheckCircle done={todo.done}>{todo.done && <MdDone />}</S.CheckCircle>
+      <S.CheckCircle onClick={onToggleTodo} done={todo.done}>
+        {todo.done && <MdDone />}
+      </S.CheckCircle>
       <S.Text done={todo.done}>{todo.title}</S.Text>
-      <S.Change>
-        <FaPen size={17} />
-      </S.Change>
       <S.Remove onClick={() => onDeleteTodo(todo.id)}>
         <MdDelete />
       </S.Remove>
